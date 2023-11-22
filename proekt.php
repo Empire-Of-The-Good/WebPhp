@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Solution;
+$text = 'Пацаны запомните однажды Роналдо сказал: SIIIIIIIIIIIIIII';
 
-// BEGIN (write your solution here)
-$text = 'Пацаны запомните однажды Роналдо сказал: SIIIIIIIIIIIIIII'
-function truncate()
+function truncate($text)
 {
-    $w = substr($text, 0, -30);
+    $w = substr($text, 0, 7);
     $ew = $w . '...';
     return $ew;
-
 }
-// END
+
+echo truncate($text);
