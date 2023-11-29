@@ -1,0 +1,65 @@
+Есть условный оператор if (переводиться как "если") и есть у него друг else (переводиться как "иначе")
+Для чего они используються?Легче показать чем объяснить...
+
+Пример
+<?php
+
+function getTypeOfSentence($sentence)//Тут все понятно
+{
+    // Простой способ извлечь последний символ
+    $lastChar = $sentence[-1];
+    if ($lastChar === '?') {//Вот здесь мы говорим "если переменная $lastChar равняеться ? то мы возращяем текст"
+        return 'question';
+    }
+
+    return 'normal';
+}
+
+getTypeOfSentence('Hodor');  // normal
+getTypeOfSentence('Hodor?'); // question
+
+else оно выполняеться когда if это false
+Пример
+<?php
+
+function getTypeOfSentence($sentence)
+{
+    $lastChar = $sentence[-1];
+
+    if ($lastChar === '?') {
+        $sentenceType = 'question';
+    } else {
+        $sentenceType = 'normal';
+    }
+
+    return "Sentence is {$sentenceType}";
+}
+
+getTypeOfSentence('Hodor');  // Sentence is normal
+getTypeOfSentence('Hodor?'); // Sentence is question
+
+
+
+Конструкция elseif — это «если не выполнено предыдущее условие, но выполнено текущее». Получается такая схема:
+
+<?php
+
+function getTypeOfSentence($sentence)
+{
+  $lastChar = $sentence[-1];
+
+  if ($lastChar === '?') {
+      $sentenceType = 'question';
+  } elseif ($lastChar === '!') {
+      $sentenceType = 'exclamation';
+  } else {
+      $sentenceType = 'normal';
+  }
+
+  return "Sentence is {$sentenceType}";
+}
+
+
+Если последний символ ?, то 'question'
+Иначе, если последний символ !, то 'exclamation'
+Иначе 'normal'
